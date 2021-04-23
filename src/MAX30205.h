@@ -25,6 +25,13 @@ public:
     uint8_t ReadConfig(const uint8_t id);
     float ReadTemperature(const uint8_t id);
 
+    MAX30205(){};
+    ~MAX30205() = default; // deleting the multi objects
+    MAX30205(const MAX30205 &source) = delete;
+    MAX30205 &operator=(const MAX30205 &source) = delete;
+    MAX30205(MAX30205 &&source) = delete;
+    MAX30205 &operator=(MAX30205 &&source) = delete;
+
 private:
     TwoWire *_wire;
     uint8_t _address;
