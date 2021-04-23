@@ -1,7 +1,25 @@
+/*!
+ *  @file MAX30205.h
+ *
+ *  This is a library for the Maxim Integrated MAX30205
+ *
+ *  Designed specifically to work with sOximeter project,
+ *  but it should work for any other purposes.
+ *
+ *  These sensors use I2C to communicate, 2 pins are required to interface.
+ *  The driver enables can also automatically find the right address and 
+ *  also supports multi sensor.
+ *
+ *  MReza Naeemabadi (RS Systems)
+ *
+ *  MIT license, all text above must be included in any redistribution
+ */
+
 #pragma once
 
 #include <Arduino.h>
 #include <Wire.h>
+#include <vector>
 
 // Address Range
 #define BASE_ADDRESS 0x40
@@ -22,8 +40,8 @@ public:
     float ReadTemperature();
 
     bool InitializeMulti(TwoWire &wire = Wire);
-    uint8_t ReadConfig(const uint8_t id);
-    float ReadTemperature(const uint8_t id);
+    uint8_t ReadConfig(const uint8_t &id);
+    float ReadTemperature(const uint8_t &id);
 
     MAX30205(){};
     ~MAX30205() = default; // deleting the multi objects
@@ -35,6 +53,7 @@ public:
 private:
     TwoWire *_wire;
     uint8_t _address;
+    std::vector<uint8_t> _addresses;
 
     void read(const uint8_t &_register, const uint8_t &_length, uint8_t *_values);
     uint8_t read(const uint8_t &_register);
