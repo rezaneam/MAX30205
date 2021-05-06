@@ -5,7 +5,7 @@ Driver for Maxim Integrated [MAX30205](https://www.maximintegrated.com/en/produc
 **Clinical local body temperature sensor ±0.1°C accurary**
 
 <p align="center">
-  <img width="600px" src="https://gr.mouser.com/images/marketingid/2016/img/162901491.png">
+  <img width="600px" src="MAX30205.jpg">
 </p>
 
 ## New Features
